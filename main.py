@@ -5,12 +5,13 @@ import datetime
 import pandas as pd
 
 
-WINERY_BASE_YEAR = datetime.datetime(year=1920, month=1, day=1, hour=0).year
+WINERY_BASE_YEAR = 1920
 now_year = datetime.datetime.now().year
 delta = now_year - WINERY_BASE_YEAR
 
-excel_data_df = pd.read_excel('wine.xlsx', usecols=['Название','Сорт','Цена','Картинка'])
+excel_data_df = pd.read_excel('wine3.xlsx', usecols=['Категория', 'Название', 'Сорт', 'Цена', 'Картинка', 'Акция'])
 wines_dict = excel_data_df.to_dict(orient='record')
+
 
 env = Environment(
     loader=FileSystemLoader('.'),
