@@ -114,11 +114,11 @@
           </div>
         </div>
         <div class="row">
-          {% for category in unique_wines_category %}
+          {% for category in unique_wine_categories %}
             <div class="col-12 section-title text-center mb-5">
               <h2 class="d-block">{{category}}</h2>
             </div>
-              {% for wine in wines_dict if wine.Категория==category %}
+              {% for wine in wines_info if wine.Категория==category %}
                 <div class="col-lg-4 mb-5 col-md-6">
                   <div class="wine_v_1 text-center pb-4 pt-5">
                     <img src="images/{{wine.Картинка}}" alt="Image" class="img-fluid">

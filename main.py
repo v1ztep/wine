@@ -10,8 +10,8 @@ now_year = datetime.datetime.now().year
 delta = now_year - WINERY_BASE_YEAR
 
 excel_data_df = pd.read_excel('wine.xlsx', usecols=['Категория', 'Название', 'Сорт', 'Цена', 'Картинка', 'Акция'], keep_default_na=False)
-unique_wines_category = excel_data_df.Категория.unique()
-wines_dict = excel_data_df.to_dict(orient='record')
+unique_wine_categories = excel_data_df.Категория.unique()
+wines_info = excel_data_df.to_dict(orient='record')
 
 
 env = Environment(
@@ -23,8 +23,8 @@ template = env.get_template('template.html')
 
 rendered_page = template.render(
     winery_age=f"Уже {delta} лет с вами",
-    unique_wines_category=unique_wines_category,
-    wines_dict=wines_dict
+    unique_wine_categories=unique_wine_categories,
+    wines_info=wines_info
 )
 
 with open('index.html', 'w', encoding="utf8") as file:
